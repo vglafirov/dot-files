@@ -53,22 +53,22 @@ local plugins = {
       require "custom.configs.conform"
     end,
   },
-  {
-    "mfussenegger/nvim-dap",
-    init = function()
-      require("core.utils").load_mappings "dap"
-    end,
-  },
-  {
-    "leoluz/nvim-dap-go",
-    ft = "go",
-    dependencies = "mfussenegger/nvim-dap",
-    config = function(_, opts)
-      require("dap-go").setup(opts)
-      require("core.utils").load_mappings "dap-go"
-    end,
-  },
-  {
+  -- {
+  --   "mfussenegger/nvim-dap",
+  --   init = function()
+  --     require("core.utils").load_mappings "dap"
+  --   end,
+  -- },
+  -- {
+  --   "leoluz/nvim-dap-go",
+  --   ft = "go",
+  --   dependencies = "mfussenegger/nvim-dap",
+  --   config = function(_, opts)
+  --     require("dap-go").setup(opts)
+  --     require("core.utils").load_mappings "dap-go"
+  --   end,
+  -- },
+   {
     "NeogitOrg/neogit",
     lazy = false,
     dependencies = {
