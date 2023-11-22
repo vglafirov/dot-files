@@ -2,9 +2,10 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
+local lsp_signature = require "lsp_signature"
 local util = require "lspconfig/util"
 
-lspconfig.gopls.setup({
+lspconfig.gopls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   cmd = { "gopls" },
@@ -18,30 +19,34 @@ lspconfig.gopls.setup({
         unuserdparams = true,
         unusedwrite = true,
         unusedvariable = true,
-      }
-    }
-  }
-})
+      },
+    },
+  },
+}
 
-lspconfig.pyright.setup({
+lsp_signature.setup {
+  bind = true, -- This is mandatory, otherwise border config won't get registered.
+  handler_opts = {
+    border = "rounded",
+  },
+}
+
+lspconfig.pyright.setup {
   on_attach = on_attach,
-  capabilities = capabilities
-})
+  capabilities = capabilities,
+}
 
-
-lspconfig.terraformls.setup({
+lspconfig.terraformls.setup {
   on_attach = on_attach,
-  capabilities = capabilities
-})
+  capabilities = capabilities,
+}
 
-lspconfig.biome.setup({
+lspconfig.biome.setup {
   on_attach = on_attach,
-  capabilities = capabilities
-})
+  capabilities = capabilities,
+}
 
-lspconfig.lua_ls.setup({
+lspconfig.lua_ls.setup {
   on_attach = on_attach,
-  capabilities = capabilities
-})
-
-
+  capabilities = capabilities,
+}

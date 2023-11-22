@@ -12,6 +12,7 @@ M.general = {
     [","] = { ":", "enter command mode", opts = { nowait = true } },
     ["<leader>gi"] = { ":Neogit kind=split <CR>", "Open Neogit" },
     ["<leader>fp"] = { ":Telescope projects <CR>", "Open projects" },
+    ["<leader>ns"] = { ':lua require("impulse").menu_search()<CR>', "Search in Notion" },
   },
 }
 
@@ -51,18 +52,18 @@ M.dap_go = {
   },
 }
 
- M.gopher = {
-   plugin = true,
-   n = {
-     ["<leader>gsj"] = {
-       "<cmd> GoTagAdd json <CR>",
-       "Add json struct tags",
-     },
-     ["<leader>gsy"] = {
-       "<cmd> GoTagAdd yaml <CR>",
-       "Add yaml struct tags",
-     },
-   },
- }
+M.gopher = {
+  plugin = true,
+  n = {
+    ["<leader>gsj"] = {
+      "<cmd> GoTagAdd json <CR>",
+      "Add json struct tags",
+    },
+    ["<leader>gsy"] = {
+      "<cmd> GoTagAdd yaml <CR>",
+      "Add yaml struct tags",
+    },
+  },
+}
 
 return M

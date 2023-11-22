@@ -53,6 +53,17 @@ local plugins = {
       require "custom.configs.conform"
     end,
   },
+  {
+    "chrsm/impulse.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- required
+      "nvim-telescope/telescope.nvim", -- optional
+    },
+    lazy = false,
+    config = function()
+      require "custom.configs.impulse"
+    end,
+  },
   -- {
   --   "mfussenegger/nvim-dap",
   --   init = function()
@@ -62,13 +73,32 @@ local plugins = {
   -- {
   --   "leoluz/nvim-dap-go",
   --   ft = "go",
-  --   dependencies = "mfussenegger/nvim-dap",
+  --   dependencies = "mfussenegger/nvim-dap",plu
   --   config = function(_, opts)
   --     require("dap-go").setup(opts)
   --     require("core.utils").load_mappings "dap-go"
   --   end,
   -- },
-   {
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    config = function(_, opts)
+      require("gopher").setup(opts)
+      require("core.utils").load_mappings "gopher"
+    end,
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]]
+    end,
+  },
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    opts = {},
+    config = function(_, opts)
+      require("lsp_signature").setup(opts)
+    end,
+  },
+  {
     "NeogitOrg/neogit",
     lazy = false,
     dependencies = {
