@@ -50,3 +50,35 @@ lspconfig.lua_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
+
+-- lspconfig.sorbet.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+-- }
+--
+-- lspconfig.ruby_slp.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   default_config = {
+--     cmd = { "bundle", "exec", "ruby-lsp" },
+--     filetypes = { "ruby" },
+--     root_dir = util.root_pattern("Gemfile", ".git"),
+--   },
+-- }
+--
+lspconfig.solargraph.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { os.getenv "HOME" .. "/.local/share/rtx/installs/ruby/3.1.4/bin/solargraph", "stdio" },
+  settings = {
+    solargraph = {
+      autoformat = true,
+      completion = true,
+      diagnostic = true,
+      folding = true,
+      references = true,
+      rename = true,
+      symbols = true,
+    },
+  },
+}
