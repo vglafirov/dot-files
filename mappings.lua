@@ -11,7 +11,7 @@ M.general = {
   n = {
     [","] = { ":", "enter command mode", opts = { nowait = true } },
     ["<leader>gi"] = { ":Neogit kind=split <CR>", "Open Neogit" },
-    ["<leader>fp"] = { ":Telescope projects <CR>", "Open projects" },
+    ["<leader>fp"] = { ":Telescope neovim-project discover <CR>", "Open projects" },
   },
 }
 
