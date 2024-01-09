@@ -14,6 +14,10 @@ local plugins = {
   },
   {
     "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "debugloop/telescope-undo.nvim",
+    },
     lazy = false,
     config = function()
       require "plugins.configs.telescope"
@@ -146,6 +150,16 @@ local plugins = {
   },
   {
     "ThePrimeagen/vim-be-good",
+  },
+  {
+    "AckslD/nvim-neoclip.lua",
+    requires = {
+      { "nvim-telescope/telescope.nvim" },
+      { "ibhagwan/fzf-lua" },
+    },
+    config = function()
+      require("neoclip").setup()
+    end,
   },
   --   {
   --     "MunifTanjim/nougat.nvim",
